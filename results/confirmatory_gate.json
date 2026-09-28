@@ -1,0 +1,13 @@
+{
+  "primary_window_s": 30,
+  "primary_wins_out_of_15": 8,
+  "wins_by_window": {
+    "15": 10,
+    "30": 8,
+    "45": 13
+  },
+  "exact_angle_permutation_p": 0.16666666666666666,
+  "removing_60deg_eliminates_mean_advantage": true,
+  "confirmatory_gate_pass": false,
+  "exploratory_primary_spearman_p_vs_tensile_fraction": -1.0
+}
