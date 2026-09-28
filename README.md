@@ -1,51 +1,51 @@
-# Acoustic anisotropy and critical AE acceleration
+# Acoustic anisotropy and AE-energy timing
 
 Target journal: *Engineering Fracture Mechanics*.
 
-## Current status
+## Current scientific framing
 
-A clean confirmatory rerun was performed from the original Zenodo 18501172 data.
+The project no longer claims a universal critical power law or a confirmed trigonometric bedding-angle law. The strongest reproducible result is stage-resolved:
 
-The originally proposed predictive angular law
-```
-log(AE energy rate) = a(beta) - p_eff(beta) log(TTF)
-p_eff(beta) = p0 + p1 cos(2 beta) + p2 cos(4 beta)
-```
-does **not** pass the prespecified confirmatory gate.
+- 0°, 30°, and 45° reach their maximum AE-energy rate in Stage IV.
+- 60° and 90° reach their maximum AE-energy rate earlier, in Stage III.
+- The earlier peak is associated with more shear/mixed fracture-mode composition.
+- Power-law critical scaling is not uniquely supported; exponential alternatives are competitive or preferred in several cases.
 
-Primary 30 s causal window:
-- anisotropic model better than universal model in 8/15 held-out angle × horizon tests;
-- exact 5! bedding-angle permutation test: p = 0.167;
-- removing the 60° trajectory eliminates the mean advantage.
+The working mechanistic interpretation is therefore:
 
-Sensitivity:
-- 15 s window: 10/15 wins;
-- 30 s window: 8/15 wins;
-- 45 s window: 13/15 wins.
+> bedding orientation → fracture-mode partitioning → timing of AE-energy concentration → failure.
 
-Therefore the trigonometric angular law should **not** be presented as a confirmed predictive law.
+Because the public dataset contains one physical specimen per bedding orientation, the result is treated as discovery-level evidence and not as a population-level law.
 
-## Exploratory mechanism
+## Publication-figure notebook
 
-A secondary analysis suggests that the orientation-specific critical-acceleration exponent is inversely related to the tensile-event fraction reported in Figure 13. This points to a potentially more defensible mechanism:
+Open the customizable publication-figure notebook directly in Colab:
 
-> the acceleration of acoustic-emission activity toward failure may depend on fracture-mode composition (tensile vs shear/mixed), with bedding orientation acting through the failure mechanism rather than through a universal angular scaling law.
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ardominguezm/acoustic-anisotropy/blob/main/notebooks/03_publication_figures.ipynb)
 
-This result is exploratory and requires independent specimens or external validation before being used as the paper's principal claim.
+The notebook generates manuscript-ready PDF/PNG figures and exposes a single `CONFIG` block for typography, dimensions, line widths, markers, DPI, formats, titles, and output directory.
+
+Required source files from Zenodo record 18501172:
+
+- `Supporting data for Figure 9.xlsx`
+- `Supporting data for Figure 13.xlsx`
+
+The notebook can either upload them interactively in Colab or read them from Google Drive. Raw third-party data are not redistributed in this repository.
 
 ## Reproducibility
 
-The analysis uses the original Zenodo deposit 18501172. Raw data are not committed to this private repository. Place the downloaded ZIP under `data/raw/18501172.zip` or set the environment variable `DATA_ZIP`.
+The analysis uses the original public dataset from Zenodo record 18501172. Raw data are not committed to this repository.
 
-The confirmatory notebook is maintained under `notebooks/01_confirmatory_analysis.ipynb`.
+Key analysis files:
 
-## Next decision
+- `analysis/confirmatory_analysis.py`
+- `notebooks/01_confirmatory_analysis.ipynb`
+- `notebooks/03_publication_figures.ipynb`
 
-Before drafting for *Engineering Fracture Mechanics*, test whether the fracture-mode interpretation is robust using:
-1. block/bootstrap uncertainty for orientation-specific exponents;
-2. alternative non-overlapping rate windows;
-3. stage-resolved tensile/shear composition where timestamps permit;
-4. influence diagnostics excluding each orientation;
-5. a comparison of power-law critical acceleration against exponential/log-linear alternatives.
+## Manuscript target
 
-No further black-box ML or Neural ODE development is planned for this dataset.
+Working title:
+
+**Bedding anisotropy shifts the timing of acoustic-emission energy release during shale fracture**
+
+The manuscript emphasizes mechanistic timing of AE-energy concentration rather than aggregate AE magnitude or a universal scaling law.
